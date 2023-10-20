@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Web App - Generate Lyrics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/output.css') }}">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-800 text-white py-4 flex-col justify-between">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Your Web App - Generate Lyrics</h1>
+        </div>
+        <div class="container mx-auto text-center">
+            <a href="/logout" class="text-white text-sm hover:underline">Logout</a>
+        </div>
+    </header>    
+
+    <main class="container mx-auto p-4">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Top Tracks</h2>
+            <ol class="list-decimal">
+                {% for track in top_tracks %}
+                    <li >- <strong>{{ track.name }}</strong> by {{ track.artists | join(', ') }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </main>
+
+    <main class="container mx-auto p-4">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Generated Lyrics</h2>
+            <pre class="content-center" >{{ generated_lyrics }}</pre>
+        </div>
+    </main>
+
+    <div class="text-center">
+        <a id="regenerateButton" href="/generate" class="bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600 border-solid">
+            Regenerate Lyrics
+        </a>
+        <a href="/top" class="bg-green-500 text-white py-2 px-4 rounded-full hover-bg-green-600 border-solid">
+            Back to Top Tracks
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('regenerateButton').onclick = function() {
+            this.disabled = null;
+            this.textContent = "Generating...";
+            this.style.backgroundColor = "#1F2937";
+        };
+    </script>
+</body>
+</html>
