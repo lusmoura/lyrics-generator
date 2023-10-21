@@ -4,6 +4,7 @@ Connect to your Spotify account and generate a brand new song based to your top 
 ## How does it work
 Log in with your Spotify account so that we can access your top tracks. We will then use the lyrics of your top tracks to generate a brand new song.
 
+https://github.com/lusmoura/lyrics-generator/assets/39441856/d8c9919e-fc42-4e14-8036-bc38f79fe97e
 
 ## How to run
 1. Clone the repository
